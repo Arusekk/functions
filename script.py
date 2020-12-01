@@ -19,7 +19,7 @@ args = p.parse_args()
 ast = parse_file(args.file)
 Functions = ExtractAllFuncDecls(ast, verbose=args.verbose)
 
-print "Parsed %i functions" % len(Functions)
+print("Parsed %i functions" % len(Functions))
 
 with open('functions.py','wt+') as f:
     f.write('''
