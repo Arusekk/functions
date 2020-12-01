@@ -15,6 +15,7 @@ typedef struct __builtin_va_list __builtin_va_list;
 #define __signed__ signed
 #define __int128_t unsigned long long // Hacky
 #define __alignof__(...) 0
+#define _Complex
 
 #define INIT // regex
 
@@ -23,8 +24,13 @@ typedef int key_serial_t;
 typedef unsigned int key_perm_t;
 typedef struct __user_cap_data_struct *cap_user_data_t;
 typedef struct __user_cap_header_struct* cap_user_header_t;
-typedef unsigned long aio_context_t;
+typedef unsigned long io_context_t;
 typedef unsigned long long u64;
+typedef float _Float32;
+typedef float _Float32x;
+typedef double _Float64;
+typedef double _Float64x;
+typedef long double _Float128;
 // ------ MAKE PYCPARSER HAPPY ------
 
 
@@ -51,9 +57,10 @@ typedef unsigned long long u64;
 #include <sys/utsname.h>
 // #include <sys/vm86.h>
 #include <sys/wait.h>
+#include <bits/types/struct_FILE.h>
 
 // Adding OpenSSL is nice, but adds a huge load time.
-#include <openssl/ssl.h>
+// #include <openssl/ssl.h>
 
 #include <aio.h>
 #include <aliases.h>
@@ -86,7 +93,6 @@ typedef unsigned long long u64;
 #include <fstab.h>
 #include <fts.h>
 #include <ftw.h>
-#include <_G_config.h>
 #include <gconv.h>
 #include <getopt.h>
 #include <glob.h>
@@ -101,7 +107,6 @@ typedef unsigned long long u64;
 #include <lastlog.h>
 #include <libgen.h>
 #include <libintl.h>
-#include <libio.h>
 #include <limits.h>
 #include <link.h>
 #include <locale.h>
@@ -143,7 +148,6 @@ typedef unsigned long long u64;
 #include <stdlib.h>
 #include <string.h>
 #include <strings.h>
-#include <stropts.h>
 #include <syscall.h>
 #include <sysexits.h>
 #include <syslog.h>
@@ -158,7 +162,6 @@ typedef unsigned long long u64;
 #include <ucontext.h>
 #include <ulimit.h>
 #include <unistd.h>
-#include <ustat.h>
 #include <utime.h>
 #include <utmp.h>
 #include <utmpx.h>
@@ -167,7 +170,6 @@ typedef unsigned long long u64;
 #include <wchar.h>
 #include <wctype.h>
 #include <wordexp.h>
-#include <xlocale.h>
 #include <zlib.h>
 
 #include <sys/auxv.h>
@@ -222,10 +224,8 @@ typedef unsigned long long u64;
 #include <sys/statfs.h>
 #include <sys/stat.h>
 #include <sys/statvfs.h>
-#include <sys/stropts.h>
 #include <sys/swap.h>
 #include <sys/syscall.h>
-#include <sys/sysctl.h>
 #include <sys/sysinfo.h>
 #include <sys/syslog.h>
 #include <sys/sysmacros.h>
@@ -240,11 +240,9 @@ typedef unsigned long long u64;
 #include <sys/types.h>
 #include <sys/ucontext.h>
 #include <sys/uio.h>
-#include <sys/ultrasound.h>
 #include <sys/un.h>
 #include <sys/unistd.h>
 #include <sys/user.h>
-#include <sys/ustat.h>
 #include <sys/utsname.h>
 #include <sys/vfs.h>
 #include <sys/vlimit.h>
@@ -253,5 +251,10 @@ typedef unsigned long long u64;
 #include <sys/vtimes.h>
 #include <sys/wait.h>
 #include <sys/xattr.h>
+
+#include <linux/sysctl.h>
+#include <linux/ultrasound.h>
+
+typedef sigset_t kernel_sigset_t;
 
 #include "missing.h"

@@ -28,7 +28,7 @@ DEPFILE = .depfile
 
 all: $(OUT)
 
-missing.h:
+missing.h: missing.sh missing.txt
 	bash missing.sh > "$@"
 
 release:

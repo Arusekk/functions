@@ -149,6 +149,7 @@ tuxcall
 ugetrlimit
 unimplemented
 uselib
+ustat
 vm86
 vm86old
 vserver
